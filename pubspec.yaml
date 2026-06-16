@@ -24,7 +24,7 @@ jobs:
         with:
           flutter-version: '3.24.0'
           channel: 'stable'
-          cache: true
+          cache: false
 
       - name: Get dependencies
         run: flutter pub get
@@ -37,3 +37,7 @@ jobs:
         with:
           name: todo-app-release
           path: build/app/outputs/flutter-apk/app-release.apk
+        env:
+          ACTIONS_ALLOW_UNSECURE_NODE_VERSION: true
+          ACTIONS_RUNNER_FORCED_INTERNAL_NODE_VERSION: node20
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
